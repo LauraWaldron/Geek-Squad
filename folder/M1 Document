@@ -64,6 +64,7 @@ knowledge at this point. Focus on WHAT and not HOW. Keep the users in mind.
 Develop these functions to be consistent with use cases and requirements above.
 Number each requirement and use these numbers consistently from now on. For
 each functionality use 1-5 line description.
+
 6 List of non-functional requirements
 For example, performance, usability, accessibility, expected load, security
 requirements, storage, availability, fault tolerance etc. Number each. When possible,
