@@ -70,6 +70,11 @@ You also have to decide on which frameworks you will use if any. These provide
 both user interface, as well as cross-platform and cross browser layout/css. All
 external code you plan to use must be listed along with their license.
 
+1. VSCode
+2. Python
+3. HTML
+4. CSS
+
 8 Team
 List student group names, name of Scrum master, product owner and initial roles
 for each member
