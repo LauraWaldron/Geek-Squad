@@ -26,6 +26,8 @@ why you develop this project and target at what market sectors. Assign a product
 name to your project. This executive summary should be readable to a general
 audience who is not a computer science specialist. The executive summary is also
 used to advertise and promote your project.
+        We are creating an online maze game. The target is anyone with a web browser who has a little free time and wishes to test their skills at mazes.
+The name of our product is:     . 
 
 2 Competitive analysis
 Analyzing competitive products available today. Present competitors’ features vs.
@@ -50,6 +52,10 @@ These terms and their names must be used consistently from then on in all
 documents, user interface, in naming software components and database elements
 etc. In later milestones, you will add more implementation details for each item. You
 will later expand this section with more details.
+Game Players (the people playing the game)
+Characters (the individual characters we will create and allow the user to employ)
+Maze levels (the two to three pages we will create to have the user travel through the mazes; each one will be different)
+
 
 4 Overview, scenarios and use cases
 This section describes the project overview (in much more details) and likelihood
@@ -72,11 +78,19 @@ knowledge at this point. Focus on WHAT and not HOW. Keep the users in mind.
 Develop these functions to be consistent with use cases and requirements above.
 Number each requirement and use these numbers consistently from now on. For
 each functionality use 1-5 line description.
+1.	The user needs to be able to move left, right, up, and down. They should be able to walk in any direction, based on which direction they want to go in the maze.
+2.	If the user successfully reaches the exit of the maze, indicated by a flag, they will be able to go to the next page (options?) Either they will be directly placed at the start of the next maze or they will have some option that allows them to start the next maze.
+3.	The user will be able to time themselves going through the maze. The timer will be located in one corner of the screen (or maybe at the bottom) and the user will be able to start and stop it when they enter the maze. There may also be an option for a non-timed run.
+4.	The user will be able to choose between three to four different character options. We will create these character options and have a page where the user can choose between the different options.
+
 
 6 List of non-functional requirements
 For example, performance, usability, accessibility, expected load, security
 requirements, storage, availability, fault tolerance etc. Number each. When possible,
 try to quantify these quality attributes.
+1.	The game should be accessible for anyone with a web browser (Chrome and Microsoft Edge) and free.
+2.	There should be about six to seven pages of content, so the load isn’t too much—one home screen, two or three levels of mazes, one character choosing page (which can be reloaded between every maze), and one results page.
+
 
 7 High-level system architecture
 Lists of main software products, tools, languages and systems to be used, list of core
