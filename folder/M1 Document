@@ -119,8 +119,9 @@ each functionality use 1-5 line description.
 For example, performance, usability, accessibility, expected load, security
 requirements, storage, availability, fault tolerance etc. Number each. When possible,
 try to quantify these quality attributes.
-1.	The game should be accessible for anyone with a web browser (Chrome and Microsoft Edge) and free.
-2.	There should be about six to seven pages of content, so the load isn’t too much—one home screen, two or three levels of mazes, 
+1.The game should be accessible for anyone with a web browser (Chrome and Microsoft Edge) and free.
+2.The game should be accessible on a mobile device as well as pc.
+3.There should be about six to seven pages of content, so the load isn’t too much—one home screen, two or three levels of mazes, 
 one character choosing page (which can be reloaded between every maze), and one results page.
 
 
