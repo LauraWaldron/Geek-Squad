@@ -87,10 +87,16 @@ knowledge at this point. Focus on WHAT and not HOW. Keep the users in mind.
 Develop these functions to be consistent with use cases and requirements above.
 Number each requirement and use these numbers consistently from now on. For
 each functionality use 1-5 line description.
-1.	The user needs to be able to move left, right, up, and down. They should be able to walk in any direction, based on which direction they want to go in the maze.
-2.	If the user successfully reaches the exit of the maze, indicated by a flag, they will be able to go to the next page (options?) Either they will be directly placed at the start of the next maze or they will have some option that allows them to start the next maze.
-3.	The user will be able to time themselves going through the maze. The timer will be located in one corner of the screen (or maybe at the bottom) and the user will be able to start and stop it when they enter the maze. There may also be an option for a non-timed run.
-4.	The user will be able to choose between three to four different character options. We will create these character options and have a page where the user can choose between the different options.
+
+1. The user needs to be able to move left, right, up, and down. 
+	They should be able to walk in any direction, based on which direction they want to go in the maze.
+2. If the user successfully reaches the exit of the maze, indicated by a flag, they will be able to go to the next page.
+	Either they will be directly placed at the start of the next maze or they will have some option that allows them to start the next maze.
+	The user will be 
+3. The user will be able to time themselves going through the maze. 
+	The timer will be located in one corner of the screen (or maybe at the bottom) and the user will be able to start and stop it when they enter the maze. There may also be an option for a non-timed run.
+4. The user will be able to choose between three to four different character options. 
+	We will create these character options and have a page where the user can choose between the different options.
 
 
 6 List of non-functional requirements
