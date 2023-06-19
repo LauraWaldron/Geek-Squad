@@ -1,1 +1,6 @@
-Our Html Home Page--which will eventually get content.
+This project will encompass a simple maze game that will allow the user to progress through 2 - 3 levels.
+The game is essentially a 2D program that is composed of a 5x5 grid with a starting point (user begin position)
+and an end point (the goal position). The goal of the game is for the user to move up, down, left, or right to
+reach the goal position which will be indicated by a flag. This online application can be accessed or used by anyone 
+with a link to the webpage. The purpose of this program is merely for entertainment so anyone of any caliber can
+play the game.
