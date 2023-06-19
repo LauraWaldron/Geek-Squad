@@ -127,6 +127,7 @@ try to quantify these quality attributes.
 2.The game should be accessible on a mobile device as well as pc.
 3.There should be about six to seven pages of content, so the load isn’t too much—one home screen, two or three levels of mazes, 
 one character choosing page (which can be reloaded between every maze), and one results page.
+4. Pop-up screen when you complete a level.
 
 
 7 High-level system architecture
