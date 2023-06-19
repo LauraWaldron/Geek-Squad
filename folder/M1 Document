@@ -78,7 +78,7 @@ will later expand this section with more details.
 Game Players (the people playing the game)
 Characters (the individual characters we will create and allow the user to employ)
 Maze levels (the two to three pages we will create to have the user travel through the mazes; each one will be different)
-
+Timer (Most likely will be optional for user (on/off) but will measure user progress)
 
 4 Overview, scenarios and use cases
 This section describes the project overview (in much more details) and likelihood
