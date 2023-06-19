@@ -17,7 +17,7 @@ Laura Waldron        lwaldron2021@fau.edu
 Calvert Blair        cblair2018@fau.edu
 Jamie Pham           jpham2022@fau.edu
 Cale Schad           cschad2019@fau.edu
-Nicholas Uribe
+Nicholas Uribe       nuribe2020@fau.edu
  
 1 Executive Summary
 A short description of the final project and its key advantages, novelty, and values,
@@ -52,6 +52,7 @@ These terms and their names must be used consistently from then on in all
 documents, user interface, in naming software components and database elements
 etc. In later milestones, you will add more implementation details for each item. You
 will later expand this section with more details.
+
 Game Players (the people playing the game)
 Characters (the individual characters we will create and allow the user to employ)
 Maze levels (the two to three pages we will create to have the user travel through the mazes; each one will be different)
