@@ -90,11 +90,13 @@ each functionality use 1-5 line description.
 	They should be able to walk in any direction, based on which direction they want to go in the maze.
 2. If the user successfully reaches the exit of the maze, indicated by a flag, they will be able to go to the next page.
 	Either they will be directly placed at the start of the next maze or they will have some option that allows them to start the next maze.
-	The user will be 
+	If its the latter then the user will be prompted with a question on whether or not they would like to continue or jump to results.
 3. The user will be able to time themselves going through the maze. 
-	The timer will be located in one corner of the screen (or maybe at the bottom) and the user will be able to start and stop it when they enter the maze. There may also be an option for a non-timed run.
+	The timer will be located in one corner of the screen (or maybe at the bottom) and the user will be able to start and stop it when 
+	they enter the maze. There may also be an option for a non-timed run.
 4. The user will be able to choose between three to four different character options. 
 	We will create these character options and have a page where the user can choose between the different options.
+5. The results page will consist of the users timed run and the amount of moves they made to finish each level.
 
 
 6 List of non-functional requirements
