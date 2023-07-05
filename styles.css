@@ -1,0 +1,18 @@
+body {
+    background-color:palegreen;
+    text-align:center;
+}
+p{
+    color:black;
+    text-align: center;
+}
+h2{
+    color:rgb(90, 83, 21);
+}
+h1{
+    color:rgb(90, 83, 21);
+    text-align:center;
+}
+.start-here{
+    background-color:black;
+}
