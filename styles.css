@@ -24,6 +24,6 @@ h1{
 
 }
 
-#gamelevel1 {
+#gamelevel1, table, td[indicator='1'] {
     margin: auto;
-}
+  }
