@@ -27,3 +27,9 @@ h1{
 #gamelevel1, table{
     margin: auto;
   }
+.circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;
+}
