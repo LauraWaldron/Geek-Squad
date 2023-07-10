@@ -1,5 +1,5 @@
 body {
-    background-color:palegreen;
+    background-color:rgb(147,196,125,255);
     text-align:center;
 }
 p{
@@ -15,4 +15,10 @@ h1{
 }
 .start-here{
     background-color:black;
+}
+.button1{
+    background-color:rgb(90, 83, 21);
+    text-align:left;
+    font-size:20px;
+
 }
