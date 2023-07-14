@@ -1,3 +1,5 @@
+
+// Function that will determine the size of the maze based on the game level
 $(function () {
         var levelDifficulty = function() {
             var path = window.location.pathname;
@@ -9,10 +11,12 @@ $(function () {
             return 12;
           }
         };
+
+
     SIZE = levelDifficulty();
     var currentCell = { row: 1, column: 1 }; // Track the current cell
 
-    function moveCircle(direction) {
+    function moveCharacter(direction) {
         // Calculate the next cell coordinates based on the direction
         var nextRow = currentCell.row;
         var nextColumn = currentCell.column;
@@ -31,10 +35,10 @@ $(function () {
         currentCell.row = nextRow;
         currentCell.column = nextColumn;
 
-        // Move the circle to the next cell
-        var circle = $("#circle");
+        // Move the Character to the next cell
+        var Character = $("#Character");
         var cell = $("table tr:nth-child(" + nextRow + ") td:nth-child(" + nextColumn + ")");
-        cell.append(circle);
+        cell.append(Character);
     }
 
     // Attach keydown event listener to the document
@@ -42,16 +46,16 @@ $(function () {
         var key_code = e.which || e.keyCode;
         switch (key_code) {
             case 37: // left arrow key
-                moveCircle("left");
+                moveCharacter("left");
                 break;
             case 38: // up arrow key
-                moveCircle("up");
+                moveCharacter("up");
                 break;
             case 39: // right arrow key
-                moveCircle("right");
+                moveCharacter("right");
                 break;
             case 40: // down arrow key
-                moveCircle("down");
+                moveCharacter("down");
                 break;
         }
     });
@@ -66,8 +70,8 @@ function draw() {
         for (var j = 1; j <= SIZE; j += 1) {
             var cell = $("<td height=50 width=50 align=center valign=center></td>");
             if (i === 1 && j === 1) { // Check if it's the top-left cell
-                var circle = $("<div id='circle' class='circle'></div>");
-                cell.append(circle);
+                var Character = $("<div id='Character' class='Character'></div>");
+                cell.append(Character);
             }
             row.append(cell);
         }

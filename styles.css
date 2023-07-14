@@ -17,19 +17,24 @@ h1{
 .start-here{
     color: white;
 }
-.button1{
-    background-color:rgb(90, 83, 21);
+.button1{    
+    border: 2px solid rgb(90, 83, 21);
+    border-radius: 8px;
+    padding: 20px;
+    color:rgb(90, 83, 21);
     text-align:left;
-    font-size:20px;
-
+    font-size:25px;
+    font-weight: bolder;
+    text-decoration: none;
 }
 
 table{
     margin: auto;
-  }
-.circle {
+}
+
+.Character {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #000;
+    background-color: rgb(233, 198, 204)
 }
