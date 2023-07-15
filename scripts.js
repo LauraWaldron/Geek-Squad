@@ -1,84 +1,93 @@
 
-// Function that will determine the size of the maze based on the game level
-$(function () {
-        var levelDifficulty = function() {
-            var path = window.location.pathname;
-          if (path == '/game1.html') {
-            return 6;
-          } else if ((path) == '/game2.html') {
-            return 9;
-          } else {
-            return 12;
-          }
-        };
-
-
-    SIZE = levelDifficulty();
-    var currentCell = { row: 1, column: 1 }; // Track the current cell
-
-    function moveCharacter(direction) {
-        // Calculate the next cell coordinates based on the direction
-        var nextRow = currentCell.row;
-        var nextColumn = currentCell.column;
-
-        if (direction === "up" && nextRow > 1) {
-            nextRow--;
-        } else if (direction === "down" && nextRow < SIZE) {
-            nextRow++;
-        } else if (direction === "left" && nextColumn > 1) {
-            nextColumn--;
-        } else if (direction === "right" && nextColumn < SIZE) {
-            nextColumn++;
+class MazeGame {
+    constructor() {
+        this.SIZE = this.levelDifficulty();
+        this.currentCell = { row: 1, column: 1 };     // starting position of the character
+        this.drawGrid();
+        this.EventListeners();
         }
-
-        // Update the current cell
-        currentCell.row = nextRow;
-        currentCell.column = nextColumn;
-
-        // Move the Character to the next cell
-        var Character = $("#Character");
-        var cell = $("table tr:nth-child(" + nextRow + ") td:nth-child(" + nextColumn + ")");
-        cell.append(Character);
+    
+    // Determines the size of the grid based on the game level
+    levelDifficulty() {
+        const element = document.getElementById('game-level');      //checks document id and attribute value
+        const gameLevel = element.getAttribute('data-level');       
+        if (gameLevel === 'level1') {
+        return 6; // creates a 6x6 grid
+        } else if (gameLevel === 'level2') {
+        return 9; // creates a 9x9 grid
+        } else {
+        return 12; // creates a 12x12 grid
+        }
     }
-
-    // Attach keydown event listener to the document
-    $(document).keydown(function (e) {
-        var key_code = e.which || e.keyCode;
+  
+    
+    // Moves character based on key event and ensures the character does not move outside of grid boundaries
+    moveCharacter(direction) {
+      let { row, column } = this.currentCell;
+  
+      if (direction === 'up' && row > 1) {
+        row--;
+      } else if (direction === 'down' && row < this.SIZE) {
+        row++;
+      } else if (direction === 'left' && column > 1) {
+        column--;
+      } else if (direction === 'right' && column < this.SIZE) {
+        column++;
+      }
+      
+      // updates current cell the character is positioned in
+      this.currentCell = { row, column };
+      const Character = $('#Character');
+      const cell = $(`table tr:nth-child(${row}) td:nth-child(${column})`);
+      cell.append(Character);
+    }
+    
+    // Listens to key strokes to determine movement
+    eventListeners() {
+      $(document).keydown((e) => {
+        const key_code = e.which;
         switch (key_code) {
-            case 37: // left arrow key
-                moveCharacter("left");
-                break;
-            case 38: // up arrow key
-                moveCharacter("up");
-                break;
-            case 39: // right arrow key
-                moveCharacter("right");
-                break;
-            case 40: // down arrow key
-                moveCharacter("down");
-                break;
+          case 37: // left arrow key
+            this.moveCharacter('left');
+            break;
+          case 38: // up arrow key
+            this.moveCharacter('up');
+            break;
+          case 39: // right arrow key
+            this.moveCharacter('right');
+            break;
+          case 40: // down arrow key
+            this.moveCharacter('down');
+            break;
         }
-    });
+      });
+    }
+    
 
-    draw();
-});
-
-function draw() {
-    var board = $("<table border=1 cellspacing=0>");
-    for (var i = 1; i <= SIZE; i += 1) {
-        var row = $("<tr>");
-        for (var j = 1; j <= SIZE; j += 1) {
-            var cell = $("<td height=50 width=50 align=center valign=center></td>");
-            if (i === 1 && j === 1) { // Check if it's the top-left cell
-                var Character = $("<div id='Character' class='Character'></div>");
-                cell.append(Character);
-            }
-            row.append(cell);
+    // draws the maze/board
+    drawGrid() {
+      const board = $('<table border=1 cellspacing=0>');
+      for (let i = 1; i <= this.SIZE; i += 1) {
+        const row = $('<tr>');
+        for (let j = 1; j <= this.SIZE; j += 1) {
+          const cell = $('<td height=50 width=50 align=center valign=center></td>');
+          if (i === 1 && j === 1) {
+            const Character = $('<div id="Character" class="Character"></div>');
+            cell.append(Character);
+          }
+          row.append(cell);
         }
         board.append(row);
+      }
+  
+      const mazeContainer = document.body;
+      $(mazeContainer).append(board);
     }
+  }
+  
 
-    // Attach under tictactoe if present, otherwise to body.
-    $(document.getElementById("maze") || document.body).append(board);
-}
+$(function() {
+    new MazeGame()
+});
+
   
