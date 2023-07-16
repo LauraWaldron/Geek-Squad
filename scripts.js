@@ -49,7 +49,6 @@ class Player {
 }
 
 
-
 class Maze extends Player{
     constructor() {
         super(); // Call the superclass constructor before accessing properties/methods
