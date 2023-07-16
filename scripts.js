@@ -29,20 +29,20 @@ class Player {
     // Listens to key strokes to determine movement
     eventListeners() {
         $(document).keydown((e) => {
-              const key_code = e.which;
-              switch (key_code) {
-                  case 37: // left arrow key
-                      this.moveCharacter('left');
-                      break;
-                  case 38: // up arrow key
-                      this.moveCharacter('up');
-                      break;
-                  case 39: // right arrow key
-                      this.moveCharacter('right');
-                      break;
-                  case 40: // down arrow key
-                      this.moveCharacter('down');
-                      break;
+            const key_code = e.which;
+            switch (key_code) {
+                case 37: // left arrow key
+                    this.moveCharacter('left');
+                    break;
+                case 38: // up arrow key
+                    this.moveCharacter('up');
+                    break;
+                case 39: // right arrow key
+                    this.moveCharacter('right');
+                    break;
+                case 40: // down arrow key
+                    this.moveCharacter('down');
+                    break;
           }
         });
       }
@@ -53,7 +53,7 @@ class Maze extends Player{
     constructor() {
         super(); // Call the superclass constructor before accessing properties/methods
         this.SIZE = this.levelDifficulty();
-        this.drawGrid(); // Call the drawGrid method
+        this.drawGrid();
         }
     
     // Determines the size of the grid based on the game level
