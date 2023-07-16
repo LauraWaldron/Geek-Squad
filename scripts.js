@@ -4,7 +4,7 @@ class MazeGame {
         this.SIZE = this.levelDifficulty();
         this.currentCell = { row: 1, column: 1 };     // starting position of the character
         this.drawGrid();
-        this.EventListeners();
+        this.eventListeners();
         }
     
     // Determines the size of the grid based on the game level
@@ -12,11 +12,11 @@ class MazeGame {
         const element = document.getElementById('game-level');      //checks document id and attribute value
         const gameLevel = element.getAttribute('data-level');       
         if (gameLevel === 'level1') {
-        return 6; // creates a 6x6 grid
+            return 6; // creates a 6x6 grid
         } else if (gameLevel === 'level2') {
-        return 9; // creates a 9x9 grid
+            return 9; // creates a 9x9 grid
         } else {
-        return 12; // creates a 12x12 grid
+            return 12; // creates a 12x12 grid
         }
     }
   
@@ -25,15 +25,15 @@ class MazeGame {
     moveCharacter(direction) {
       let { row, column } = this.currentCell;
   
-      if (direction === 'up' && row > 1) {
-        row--;
-      } else if (direction === 'down' && row < this.SIZE) {
-        row++;
-      } else if (direction === 'left' && column > 1) {
-        column--;
-      } else if (direction === 'right' && column < this.SIZE) {
-        column++;
-      }
+        if (direction === 'up' && row > 1) {
+            row--;
+        } else if (direction === 'down' && row < this.SIZE) {
+            row++;
+        } else if (direction === 'left' && column > 1) {
+            column--;
+        } else if (direction === 'right' && column < this.SIZE) {
+            column++;
+        }
       
       // updates current cell the character is positioned in
       this.currentCell = { row, column };
@@ -66,23 +66,23 @@ class MazeGame {
 
     // draws the maze/board
     drawGrid() {
-      const board = $('<table border=1 cellspacing=0>');
-      for (let i = 1; i <= this.SIZE; i += 1) {
-        const row = $('<tr>');
-        for (let j = 1; j <= this.SIZE; j += 1) {
-          const cell = $('<td height=50 width=50 align=center valign=center></td>');
-          if (i === 1 && j === 1) {
-            const Character = $('<div id="Character" class="Character"></div>');
-            cell.append(Character);
-          }
-          row.append(cell);
+        const board = $('<table border=1 cellspacing=0>');
+        for (let i = 1; i <= this.SIZE; i += 1) {
+            const row = $('<tr>');
+            for (let j = 1; j <= this.SIZE; j += 1) {
+            const cell = $('<td height=50 width=50 align=center valign=center></td>');
+            if (i === 1 && j === 1) {
+                const Character = $('<div id="Character" class="Character"></div>');
+                cell.append(Character);
+            }
+            row.append(cell);
+            }
+            board.append(row);
         }
-        board.append(row);
-      }
-  
-      const mazeContainer = document.body;
-      $(mazeContainer).append(board);
-    }
+    
+        const mazeContainer = document.body;
+        $(mazeContainer).append(board);
+        }
   }
   
 
