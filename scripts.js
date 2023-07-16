@@ -1,10 +1,60 @@
 
-class MazeGame {
+class Player {
     constructor() {
-        this.SIZE = this.levelDifficulty();
         this.currentCell = { row: 1, column: 1 };     // starting position of the character
-        this.drawGrid();
         this.eventListeners();
+    }
+
+    // Moves character based on key event and ensures the character does not move outside of grid boundaries
+    moveCharacter(direction) {
+        let { row, column } = this.currentCell;
+    
+            if (direction === 'up' && row > 1) {
+                row--;
+            } else if (direction === 'down' && row < this.SIZE) {
+                row++;
+            } else if (direction === 'left' && column > 1) {
+                column--;
+            } else if (direction === 'right' && column < this.SIZE) {
+                column++;
+            }
+      
+      // updates current cell the character is positioned in
+      this.currentCell = { row, column };
+      const Character = $('#Character');
+      const cell = $(`table tr:nth-child(${row}) td:nth-child(${column})`);
+      cell.append(Character);
+    }
+
+    // Listens to key strokes to determine movement
+    eventListeners() {
+        $(document).keydown((e) => {
+              const key_code = e.which;
+              switch (key_code) {
+                  case 37: // left arrow key
+                      this.moveCharacter('left');
+                      break;
+                  case 38: // up arrow key
+                      this.moveCharacter('up');
+                      break;
+                  case 39: // right arrow key
+                      this.moveCharacter('right');
+                      break;
+                  case 40: // down arrow key
+                      this.moveCharacter('down');
+                      break;
+          }
+        });
+      }
+}
+
+
+
+class Maze extends Player{
+    constructor() {
+        super(); // Call the superclass constructor before accessing properties/methods
+        this.SIZE = this.levelDifficulty();
+        this.drawGrid(); // Call the drawGrid method
         }
     
     // Determines the size of the grid based on the game level
@@ -20,48 +70,6 @@ class MazeGame {
         }
     }
   
-    
-    // Moves character based on key event and ensures the character does not move outside of grid boundaries
-    moveCharacter(direction) {
-      let { row, column } = this.currentCell;
-  
-        if (direction === 'up' && row > 1) {
-            row--;
-        } else if (direction === 'down' && row < this.SIZE) {
-            row++;
-        } else if (direction === 'left' && column > 1) {
-            column--;
-        } else if (direction === 'right' && column < this.SIZE) {
-            column++;
-        }
-      
-      // updates current cell the character is positioned in
-      this.currentCell = { row, column };
-      const Character = $('#Character');
-      const cell = $(`table tr:nth-child(${row}) td:nth-child(${column})`);
-      cell.append(Character);
-    }
-    
-    // Listens to key strokes to determine movement
-    eventListeners() {
-      $(document).keydown((e) => {
-        const key_code = e.which;
-        switch (key_code) {
-          case 37: // left arrow key
-            this.moveCharacter('left');
-            break;
-          case 38: // up arrow key
-            this.moveCharacter('up');
-            break;
-          case 39: // right arrow key
-            this.moveCharacter('right');
-            break;
-          case 40: // down arrow key
-            this.moveCharacter('down');
-            break;
-        }
-      });
-    }
     
 
     // draws the maze/board
@@ -87,7 +95,7 @@ class MazeGame {
   
 
 $(function() {
-    new MazeGame()
+    new Maze()
 });
 
   
