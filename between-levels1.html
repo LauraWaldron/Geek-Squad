@@ -1,59 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Best Score</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: lightgreen;
-    }
-    
-    h1 {
-      text-align: center;
-    }
-    
-    .best-score-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-    
-    .best-score-container p {
-      margin: 10px 0;
-    }
-    
-    .score-box {
-      display: inline-block;
-      border: 2px solid black;
-      padding: 10px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Best Score</h1>
-
-  <div class="best-score-container" id="best-score-container">
-    <p>Best Time: <span class="score-box" id="best-time"></span></p>
-    <p>Least Moves: <span class="score-box" id="least-moves"></span></p>
-  </div>
-
-  <script>
-    // Function to display the best score
-    function displayBestScore(time, moves) {
-      const bestTimeSpan = document.getElementById('best-time');
-      const leastMovesSpan = document.getElementById('least-moves');
-
-      bestTimeSpan.textContent = time;
-      leastMovesSpan.textContent = moves;
-    }
-
-    // Sample best score (replace with actual best score)
-    const bestTime = '00:45';
-    const leastMoves = 20;
-
-    // Display the best score on page load
-    displayBestScore(bestTime, leastMoves);
-  </script>
-</body>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <!--title & favicon-->
+        <title>Maze Explorers</title>
+    </head>
+    <body>
+        <br><br>
+        <h2>RESULTS</h2>
+        
+    </body>
+    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="config.js"></script>
 </html>
