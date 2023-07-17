@@ -13,7 +13,24 @@
         <div class="results-container" id="results-container">
             <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
             <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
-        </div>        
+        </div>
+        <script>
+            // Function to display the results
+            function displayResults(time, moves) {
+              const bestTimeSpan = document.getElementById('best-time');
+              const leastMovesSpan = document.getElementById('least-moves');
+        
+              bestTimeSpan.textContent = time;
+              leastMovesSpan.textContent = moves;
+            }
+        
+            // Sample results (replace with actual results)
+            const bestTime = '00:45';
+            const leastMoves = 20;
+        
+            // Display the results on page load
+            displayResults(bestTime, leastMoves);
+          </script>        
     </body>
     <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
