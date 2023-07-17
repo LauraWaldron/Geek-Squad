@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Maze Explorers</title>
+  <title>Best Score</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,7 +46,7 @@
   </style>
 </head>
 <body>
-  <h1>Results</h1>
+  <h1>Best Score</h1>
 
   <div class="results-container" id="results-container">
     <img id="clock" width="100" src="img/history.png">
@@ -57,8 +57,8 @@
   </div>
 
   <script>
-    // Function to display the results
-    function displayResults(time, moves) {
+    // Function to display the best score
+    function displayBestScore(time, moves) {
       const bestTimeSpan = document.getElementById('best-time');
       const leastMovesSpan = document.getElementById('least-moves');
 
@@ -66,12 +66,12 @@
       leastMovesSpan.textContent = moves;
     }
 
-    // Sample results (replace with actual results)
+    // Sample best score (replace with actual best score)
     const bestTime = '00:45';
     const leastMoves = 20;
 
-    // Display the results on page load
-    displayResults(bestTime, leastMoves);
+    // Display the best score on page load
+    displayBestScore(bestTime, leastMoves);
   </script>
 </body>
 </html>
