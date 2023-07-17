@@ -18,10 +18,19 @@
     .results-container {
       margin-top: 20px;
       text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .results-group {
+      display: flex;
+      justify-content: space-around;
+      flex-basis: 50%;
     }
     
     .results-container p {
-      margin: 20px 0;
+      margin: 20px;
       font-size: 24px;
     }
     
@@ -32,6 +41,8 @@
       font-size: 20px;
       background-color: lightblue;
       margin: 10px;
+      width: 200px;
+      box-sizing: border-box;
     }
     
     .moves-number,
@@ -45,6 +56,7 @@
     
     .image-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
@@ -53,7 +65,7 @@
     .image-container img {
       max-width: 100px;
       max-height: 100px;
-      margin: 0 10px;
+      margin: 10px;
     }
   </style>
 </head>
@@ -61,69 +73,47 @@
   <h1>Results</h1>
 
   <div class="results-container" id="results-container">
-    <div class="image-container">
-      <img id="clock" src="img/history.png" alt="Clock Image">
-      <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+    <div class="results-group">
+      <div class="image-container">
+        <img id="clock" src="img/history.png" alt="Clock Image">
+        <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+      </div>
+      <div class="image-container">
+        <img id="running" src="img/running.png" alt="Running Image">
+        <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+      </div>
     </div>
-    <div class="image-container">
-      <img id="running" src="img/running.png" alt="Running Image">
-      <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+    <div class="results-group">
+      <div class="image-container">
+        <img id="clock" src="img/history.png" alt="Clock Image">
+        <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+      </div>
+      <div class="image-container">
+        <img id="running" src="img/running.png" alt="Running Image">
+        <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+      </div>
+    </div>
+    <div class="results-group">
+      <div class="image-container">
+        <img id="clock" src="img/history.png" alt="Clock Image">
+        <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+      </div>
+      <div class="image-container">
+        <img id="running" src="img/running.png" alt="Running Image">
+        <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+      </div>
     </div>
   </div>
 
   <script>
     // Function to display the best score
     function displayBestScore(time, moves) {
-      const resultsContainer = document.getElementById('results-container');
+      const bestTimeSpans = document.querySelectorAll('.time-number');
+      const leastMovesSpans = document.querySelectorAll('.moves-number');
 
-      for (let i = 0; i < 3; i++) {
-        const imageContainer = document.createElement('div');
-        imageContainer.classList.add('image-container');
-
-        const clockImage = document.createElement('img');
-        clockImage.id = 'clock';
-        clockImage.src = 'img/history.png';
-        clockImage.alt = 'Clock Image';
-
-        const timeParagraph = document.createElement('p');
-        timeParagraph.textContent = 'Best Time: ';
-
-        const timeResultBox = document.createElement('span');
-        timeResultBox.classList.add('result-box');
-
-        const timeNumber = document.createElement('span');
-        timeNumber.classList.add('time-number');
-        timeNumber.textContent = time;
-
-        timeResultBox.appendChild(timeNumber);
-        timeParagraph.appendChild(timeResultBox);
-        imageContainer.appendChild(clockImage);
-        imageContainer.appendChild(timeParagraph);
-        resultsContainer.appendChild(imageContainer);
-
-        const runningImageContainer = document.createElement('div');
-        runningImageContainer.classList.add('image-container');
-
-        const runningImage = document.createElement('img');
-        runningImage.id = 'running';
-        runningImage.src = 'img/running.png';
-        runningImage.alt = 'Running Image';
-
-        const movesParagraph = document.createElement('p');
-        movesParagraph.textContent = 'Least Moves: ';
-
-        const movesResultBox = document.createElement('span');
-        movesResultBox.classList.add('result-box');
-
-        const movesNumber = document.createElement('span');
-        movesNumber.classList.add('moves-number');
-        movesNumber.textContent = moves;
-
-        movesResultBox.appendChild(movesNumber);
-        movesParagraph.appendChild(movesResultBox);
-        runningImageContainer.appendChild(runningImage);
-        runningImageContainer.appendChild(movesParagraph);
-        resultsContainer.appendChild(runningImageContainer);
+      for (let i = 0; i < bestTimeSpans.length; i++) {
+        bestTimeSpans[i].textContent = time;
+        leastMovesSpans[i].textContent = moves;
       }
     }
 
