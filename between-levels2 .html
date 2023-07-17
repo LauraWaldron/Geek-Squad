@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <!--title & favicon-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="scripts.js"></script>
+        <title>Maze Explorers</title>
+    </head>
+    <body>
+        <br><br>      
+        <h1>Best Score</h1>
+        <div class="best-score-container" id="best-score-container">
+            <img id="timer" width="100" height="100" src="img/history.png">
+            <br>
+            <img id="moves" width="100" height="100"src="img/running.png">
+            <!-- Best score will be dynamically added here -->
+      
+        </div>
+        <script>
+            // Function to display the best score
+            function displayBestScore(time, moves) {
+              const bestScoreContainer = document.getElementById('best-score-container');
+              const timeParagraph = document.createElement('p');
+              timeParagraph.textContent = `Best Time: ${time}`;
+              bestScoreContainer.appendChild(timeParagraph);        
+              const movesParagraph = document.createElement('p');
+              movesParagraph.textContent = `Least Moves: ${moves}`;
+              bestScoreContainer.appendChild(movesParagraph);
+            }        
+            // Sample best score (replace with actual best score)
+            const bestTime = '00:45';
+            const leastMoves = 20;        
+            // Display the best score on page load
+            displayBestScore(bestTime, leastMoves);
+        
+          </script>
+        <br><br>
+    </body>
+    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="config.js"></script>
+</html>

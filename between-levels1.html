@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <!--title & favicon-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="scripts.js"></script>
-        <title>Maze Explorers</title>
-    </head>
-    <body>
-        <br><br>      
-        <h1>Best Score</h1>
-        <div class="best-score-container" id="best-score-container">
-            <img id="timer" width="100" height="100" src="img/history.png">
-            <br>
-            <img id="moves" width="100" height="100"src="img/running.png">
-            <!-- Best score will be dynamically added here -->
-      
-        </div>
-        <script>
-            // Function to display the best score
-            function displayBestScore(time, moves) {
-              const bestScoreContainer = document.getElementById('best-score-container');
-              const timeParagraph = document.createElement('p');
-              timeParagraph.textContent = `Best Time: ${time}`;
-              bestScoreContainer.appendChild(timeParagraph);        
-              const movesParagraph = document.createElement('p');
-              movesParagraph.textContent = `Least Moves: ${moves}`;
-              bestScoreContainer.appendChild(movesParagraph);
-            }        
-            // Sample best score (replace with actual best score)
-            const bestTime = '00:45';
-            const leastMoves = 20;        
-            // Display the best score on page load
-            displayBestScore(bestTime, leastMoves);
-        
-          </script>
-        <br><br>
-    </body>
-    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="config.js"></script>
+<head>
+  <title>Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: lightgreen;
+    }
+    
+    h1 {
+      text-align: center;
+      font-size: 28px;
+    }
+    
+    .results-container {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .results-container p {
+      margin: 20px 0;
+      font-size: 24px;
+    }
+    
+    .result-box {
+      display: inline-block;
+      border: 2px solid black;
+      padding: 10px;
+      font-size: 20px;
+    }
+    
+    .moves-number,
+    .time-number {
+      display: inline-block;
+      border: 2px solid black;
+      padding: 5px 10px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Results</h1>
+
+  <div class="results-container" id="results-container">
+    <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+    <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+  </div>
+
+  <script>
+    // Function to display the results
+    function displayResults(time, moves) {
+      const bestTimeSpan = document.getElementById('best-time');
+      const leastMovesSpan = document.getElementById('least-moves');
+
+      bestTimeSpan.textContent = time;
+      leastMovesSpan.textContent = moves;
+    }
+
+    // Sample results (replace with actual results)
+    const bestTime = '00:45';
+    const leastMoves = 20;
+
+    // Display the results on page load
+    displayResults(bestTime, leastMoves);
+  </script>
+</body>
 </html>
