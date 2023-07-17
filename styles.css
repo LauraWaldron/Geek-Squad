@@ -2,6 +2,8 @@ body {
     background-color:rgb(147,196,125,255);
     text-align:center;
     font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
 }
 p{
     color:black;
@@ -14,22 +16,79 @@ h1{
     color:rgb(90, 83, 21);
     text-align:center;
 }
+#tree1{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+#tree2{
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+#tree3{
+    position:absolute;
+    top:0;
+    left:0;
+}
+#tree4{
+    position: absolute;
+    top:0;
+    right:0;
+}
 .start-here{
     color: white;
 }
-.button1{
-    background-color:rgb(90, 83, 21);
+.button1{    
+    border: 2px solid rgb(90, 83, 21);
+    border-radius: 8px;
+    padding: 20px;
+    color:rgb(90, 83, 21);
     text-align:left;
-    font-size:20px;
-
+    font-size:25px;
+    font-weight: bolder;
+    text-decoration: none;
 }
 
 table{
     margin: auto;
   }
-.circle {
+
+.Character {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #000;
+    background-color: rgb(233, 198, 204)
+}              
+
+.best-score-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.best-score-container p {
+    margin: 10px 0;
+}
+.results-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+ 
+  .results-container p {
+    margin: 20px 0;
+    font-size: 24px;
+  }
+ 
+  .result-box {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 20px;
+  }
+ 
+  .moves-number,
+  .time-number {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 5px 10px;
+    font-size: 20px;
 }

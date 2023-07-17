@@ -4,11 +4,16 @@
         <link rel="stylesheet" href="styles.css">
         <!--title & favicon-->
         <title>Maze Explorers</title>
+        <script src="scripts.js"></script>
+        <link rel="icon" type="image/x-icon" href="img/transtree.png">
     </head>
     <body>
         <br><br>
         <h2>Results</h2>
-        
+        <div class="results-container" id="results-container">
+            <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+            <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+        </div>        
     </body>
     <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
