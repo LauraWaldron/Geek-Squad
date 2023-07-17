@@ -101,32 +101,20 @@ $(function() {
     new Maze()
 });
 
-// Function to display the best score
-      
+// Function to display the best score 
 function displayBestScore(time, moves) {
-      
     const bestScoreContainer = document.getElementById('best-score-container');
-
-   
-
     const timeParagraph = document.createElement('p');
-
     timeParagraph.textContent = `Best Time: ${time}`;
-
     bestScoreContainer.appendChild(timeParagraph);
 
-   
-
     const movesParagraph = document.createElement('p');
-
     movesParagraph.textContent = `Least Moves: ${moves}`;
-
     bestScoreContainer.appendChild(movesParagraph);
 
 }
 
-  // Display the best score on page load
-
+// Display the best score on page load
 displayBestScore(bestTime, leastMoves);
 // Function to display the results
 function displayResults(time, moves) {
