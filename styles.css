@@ -2,6 +2,8 @@ body {
     background-color:rgb(147,196,125,255);
     text-align:center;
     font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
 }
 p{
     color:black;
@@ -57,4 +59,36 @@ table{
     height: 40px;
     border-radius: 50%;
     background-color: rgb(233, 198, 204)
+}              
+
+.best-score-container {
+    margin-top: 20px;
+    text-align: center;
+}
+.best-score-container p {
+    margin: 10px 0;
+}
+.results-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+ 
+  .results-container p {
+    margin: 20px 0;
+    font-size: 24px;
+  }
+ 
+  .result-box {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 10px;
+    font-size: 20px;
+  }
+ 
+  .moves-number,
+  .time-number {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 5px 10px;
+    font-size: 20px;
 }

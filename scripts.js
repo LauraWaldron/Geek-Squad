@@ -101,4 +101,45 @@ $(function() {
     new Maze()
 });
 
-  
+// Function to display the best score
+      
+function displayBestScore(time, moves) {
+      
+    const bestScoreContainer = document.getElementById('best-score-container');
+
+   
+
+    const timeParagraph = document.createElement('p');
+
+    timeParagraph.textContent = `Best Time: ${time}`;
+
+    bestScoreContainer.appendChild(timeParagraph);
+
+   
+
+    const movesParagraph = document.createElement('p');
+
+    movesParagraph.textContent = `Least Moves: ${moves}`;
+
+    bestScoreContainer.appendChild(movesParagraph);
+
+}
+
+  // Display the best score on page load
+
+displayBestScore(bestTime, leastMoves);
+// Function to display the results
+function displayResults(time, moves) {
+    const bestTimeSpan = document.getElementById('best-time');
+    const leastMovesSpan = document.getElementById('least-moves');
+
+    bestTimeSpan.textContent = time;
+    leastMovesSpan.textContent = moves;
+  }
+
+  // Sample results (replace with actual results)
+  const bestTime = '00:45';
+  const leastMoves = 20;
+
+  // Display the results on page load
+  displayResults(bestTime, leastMoves);
