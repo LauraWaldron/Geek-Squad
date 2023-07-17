@@ -68,29 +68,33 @@ class Maze extends Player{
             return 12; // creates a 12x12 grid
         }
     }
-  
-    
 
+
+    
     // draws the maze/board
     drawGrid() {
         const board = $('<table border=1 cellspacing=0>');
         for (let i = 1; i <= this.SIZE; i += 1) {
             const row = $('<tr>');
             for (let j = 1; j <= this.SIZE; j += 1) {
-            const cell = $('<td height=50 width=50 align=center valign=center></td>');
-            if (i === 1 && j === 1) {
-                const Character = $('<div id="Character" class="Character"></div>');
-                cell.append(Character);
-            }
-            row.append(cell);
+                const cell = $('<td height=50 width=50 align=center valign=center></td>');
+                if (i === this.SIZE && j === this.SIZE) {
+                const image = $('<img src="img/transFood.png" height=95%>');
+                cell.append(image);
+                }
+                if (i === 1 && j === 1) {
+                const character = $('<div id="Character" class="Character"></div>');
+                cell.append(character);
+                }
+                row.append(cell);
             }
             board.append(row);
+            }
+        
+            const mazeContainer = document.body;
+            $(mazeContainer).append(board);
         }
-    
-        const mazeContainer = document.body;
-        $(mazeContainer).append(board);
-        }
-  }
+    }
   
 
 $(function() {
