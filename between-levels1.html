@@ -20,6 +20,11 @@
       margin-top: 20px;
       text-align: center;
     }
+    img{
+      max-width:100%;
+      max-height:100%;
+      float:left;
+    }
     
     .results-container p {
       margin: 20px 0;
@@ -46,7 +51,10 @@
   <h1>Results</h1>
 
   <div class="results-container" id="results-container">
+    <img id="clock" width="100" src="img/history.png">
     <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+    <br><br><br>
+    <img id="running" width="100" src="img/running.png">
     <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
   </div>
 
