@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="styles.css">
-        <!--title & favicon-->
-        <title>Maze Explorers</title>
-        <link rel="icon" type="image/x-icon" href="img/transtree.png">
-    </head>
-    <body>
-        <br><br>
-        <h2>Choose your Character</h2>
-        <img id="panda" width="200" src="img/pandatrans.png">
-        <img id="sloth" width="200" src="img/slothtrans.png">
-        <img id="tiger" width="200" src="img/tigertrans.png">
-        <div>
-        <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/game1.html">Begin the maze!</a>
-        </div>     
-    </body>
-    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="config.js"></script>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <!--title & favicon-->
+    <title>Maze Explorers</title>
+    <link rel="icon" type="image/x-icon" href="img/transtree.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="scripts.js"></script>
+    <style>
+        .selected {
+            border: 9px solid rgb(90, 80, 31);
+        }
+    </style>
+</head>
+<body>
+    <br><br>
+    <h2>Choose your Character</h2>
+    <img id="panda" width="200" src="img/pandatrans.png" onclick="selectImage('panda')">
+    <img id="sloth" width="200" src="img/slothtrans.png" onclick="selectImage('sloth')">
+    <img id="tiger" width="200" src="img/tigertrans.png" onclick="selectImage('tiger')">
+    <div>
+        <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/game1.html" onclick="saveCharacter()">Begin the maze!</a>
+    </div>     
+    
+
+</body>
+<script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="config.js"></script>
+<script src="script.js"></script>
+<script>
+function saveCharacter() {
+    if (selectedImageId) {
+        // Save the selected character to localStorage
+        localStorage.setItem('selectedCharacter', selectedImageId);
+    }
+}
+</script>
 </html>

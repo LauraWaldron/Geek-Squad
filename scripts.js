@@ -83,13 +83,22 @@ class Maze extends Player{
                 cell.append(image);
                 }
                 if (i === 1 && j === 1) {
-                const character = $('<div id="Character" class="Character"></div>');
-                cell.append(character);
+                    const selectedCharacter = localStorage.getItem('selectedCharacter');
+                    let characterImage = "";
+                    if(selectedCharacter === "panda") {
+                        characterImage = 'img/pandatrans.png';
+                    } else if(selectedCharacter === "sloth") {
+                        characterImage = 'img/slothtrans.png';
+                    } else if(selectedCharacter === "tiger") {
+                        characterImage = 'img/tigertrans.png';
+                    }
+                    const character = $(`<div id="Character" class="Character" style="background-image: url('${characterImage}'); background-size: cover;"></div>`);
+                    cell.append(character);
                 }
                 row.append(cell);
             }
             board.append(row);
-            }
+        }
         
             const mazeContainer = document.body;
             $(mazeContainer).append(board);
@@ -131,3 +140,17 @@ function displayResults(time, moves) {
 
   // Display the results on page load
   displayResults(bestTime, leastMoves);
+
+  var selectedImageId = null;
+
+function selectImage(imageId) {
+    if (selectedImageId) {
+        // Remove the "selected" class from the previously selected image
+        $("#" + selectedImageId).removeClass("selected");
+    }
+  
+    // Add the "selected" class to the clicked image
+    $("#" + imageId).addClass("selected");
+  
+    selectedImageId = imageId;
+}
