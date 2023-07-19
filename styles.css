@@ -84,8 +84,7 @@ table{
     font-size: 20px;
   }
  
-  .moves-number,
-  .time-number {
+  .moves-number, .time-number {
     display: inline-block;
     border: 2px solid black;
     padding: 5px 10px;
