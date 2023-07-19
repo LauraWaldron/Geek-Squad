@@ -172,7 +172,6 @@ function selectImage(imageId) {
         // Remove the "selected" class from the previously selected image
         $("#" + selectedImageId).removeClass("selected");
     }
-  
     // Add the "selected" class to the clicked image
     $("#" + imageId).addClass("selected");
   

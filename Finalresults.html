@@ -37,17 +37,6 @@
       font-size: 24px;
     }
     
-    .result-box {
-      display: inline-block;
-      border: 2px solid black;
-      padding: 10px;
-      font-size: 20px;
-      background-color: lightblue;
-      margin: 10px;
-      width: 200px;
-      box-sizing: border-box;
-    }
-    
     .moves-number,
     .time-number {
       display: inline-block;
@@ -77,36 +66,53 @@
 
   <div class="results-container" id="results-container">
     <div class="results-group">
-      <div class="image-container">
-        <img id="clock" src="img/history.png" alt="Clock Image">
-        <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
-      </div>
-      <div class="image-container">
-        <img id="running" src="img/running.png" alt="Running Image">
-        <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
-      </div>
-    </div>
-    <div class="results-group">
-      <div class="image-container">
-        <img id="clock" src="img/history.png" alt="Clock Image">
-        <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
-      </div>
-      <div class="image-container">
-        <img id="running" src="img/running.png" alt="Running Image">
-        <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+      <div class="level-container">
+        <h2>Level 1</h2>
+        <div class="row-container">
+          <div class="image-container">
+            <img id="clock1" src="img/history.png" alt="Clock Image">
+            <p>Best Time: <span class="time-number" id="best-time1"></span></span></p>
+          </div>
+          <div class="image-container">
+            <img id="running1" src="img/running.png" alt="Running Image">
+            <p>Least Moves: <span class="moves-number" id="least-moves1"></span></span></p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="results-group">
-      <div class="image-container">
-        <img id="clock" src="img/history.png" alt="Clock Image">
-        <p>Best Time: <span class="result-box"><span class="time-number" id="best-time"></span></span></p>
+      <div class="level-container">
+        <h2>Level 2</h2>
+        <div class="row-container">
+          <div class="image-container">
+            <img id="clock2" src="img/history.png" alt="Clock Image">
+            <p>Best Time: <span class="time-number" id="best-time2"></span></span></p>
+          </div>
+          <div class="image-container">
+            <img id="running2" src="img/running.png" alt="Running Image">
+            <p>Least Moves: <span class="moves-number" id="least-moves2"></span></span></p>
+          </div>
+        </div>
       </div>
-      <div class="image-container">
-        <img id="running" src="img/running.png" alt="Running Image">
-        <p>Least Moves: <span class="result-box"><span class="moves-number" id="least-moves"></span></span></p>
+    </div>
+    <div class="results-group">
+      <div class="level-container">
+        <h2>Level 3</h2>
+        <div class="row-container">
+          <div class="image-container">
+            <img id="clock3" src="img/history.png" alt="Clock Image">
+            <p>Best Time: <span class="time-number" id="best-time3"></span></span></p>
+          </div>
+          <div class="image-container">
+            <img id="running3" src="img/running.png" alt="Running Image">
+            <p>Least Moves: <span class="moves-number" id="least-moves3"></span></span></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  
+  
 
   <script>
     // Function to display the best score
