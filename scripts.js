@@ -19,11 +19,27 @@ class Player {
                 column++;
             }
       
-      // updates current cell the character is positioned in
-      this.currentCell = { row, column };
-      const Character = $('#Character');
-      const cell = $(`table tr:nth-child(${row}) td:nth-child(${column})`);
-      cell.append(Character);
+        // updates current cell the character is positioned in
+        this.currentCell = { row, column };
+        const Character = $('#Character');
+        const cell = $(`table tr:nth-child(${row}) td:nth-child(${column})`);
+        cell.append(Character);
+
+        // Check if the character has reached the food image
+        if (row === this.SIZE && column === this.SIZE) {
+            // Determine the results page based on the current page
+            let resultsPage;
+            if (currentPage === 'game1.html') {
+              resultsPage = 'between-levels1.html';
+            } else if (currentPage === 'game2.html') {
+              resultsPage = 'between-levels2.html';
+            } else if (currentPage === 'game3.html') {
+              resultsPage = 'Finalresults.html';
+            }
+            // Forward to the appropriate results page
+            window.location.href = resultsPage;
+            
+      }
     }
 
     // Listens to key strokes to determine movement
@@ -109,6 +125,13 @@ class Maze extends Player{
 $(function() {
     new Maze()
 });
+
+function saveCharacter() {
+    if (selectedImageId) {
+        // Save the selected character to localStorage
+        localStorage.setItem('selectedCharacter', selectedImageId);
+    }
+}
 
 // Function to display the best score 
 function displayBestScore(time, moves) {
