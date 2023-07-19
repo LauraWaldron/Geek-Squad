@@ -22,8 +22,11 @@
         <source src="soundtrack.mp3" type="audio/mpeg">
     </audio>    
     
-
 </body>
+<script>
+    const audioElement = document.querySelector('audio');
+    audioElement.volume = 0.05; // Set the volume to 10 percent (0.1)
+</script>
 <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <script src="config.js"></script>
