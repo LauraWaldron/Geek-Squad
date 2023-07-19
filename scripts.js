@@ -29,12 +29,13 @@ class Player {
         if (row === this.SIZE && column === this.SIZE) {
             // Determine the results page based on the current page
             let resultsPage;
-            if (currentPage === 'game1.html') {
-              resultsPage = 'between-levels1.html';
-            } else if (currentPage === 'game2.html') {
-              resultsPage = 'between-levels2.html';
-            } else if (currentPage === 'game3.html') {
-              resultsPage = 'Finalresults.html';
+            const currentPage = window.location.href;
+            if (currentPage.endsWith('game1.html')) {
+                resultsPage = '/between-levels1.html';
+            }else if (currentPage.endsWith('/game2.html')) {
+                resultsPage = '/between-levels2.html';
+            }else if (currentPage.endsWith('/game3.html')) {
+                resultsPage = '/Finalresults.html';
             }
             // Forward to the appropriate results page
             window.location.href = resultsPage;
