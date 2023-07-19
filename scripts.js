@@ -31,11 +31,11 @@ class Player {
             let resultsPage;
             const currentPage = window.location.href;
             if (currentPage.endsWith('game1.html')) {
-                resultsPage = 'between-levels1.html';
+                resultsPage = 'Geek-Squad/between-levels1.html';
             }else if (currentPage.endsWith('game2.html')) {
-                resultsPage = 'between-levels2.html';
+                resultsPage = 'Geek-Squad/between-levels2.html';
             }else if (currentPage.endsWith('game3.html')) {
-                resultsPage = 'Finalresults.html';
+                resultsPage = 'Geek-Squad/Finalresults.html';
             }
             // Forward to the appropriate results page
             window.location.href = resultsPage;
