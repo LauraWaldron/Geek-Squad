@@ -92,7 +92,7 @@ table{
     font-size: 20px;
 }
 .selected {
-    border: 3px solid brown;
+    border: 9px solid rgb(90, 80, 31);
     transform: scale(0.75);
     border-radius: 10px;
 }
