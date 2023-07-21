@@ -59,16 +59,11 @@ table{
     border: 1px solid rgb(90, 80, 31);
   }
 
-.last-cell {
-    position: relative;
-    z-index: 0;
-}
 
 .Character {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    z-index: 1;
 }              
 
 .best-score-container {

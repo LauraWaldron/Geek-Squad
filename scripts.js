@@ -42,6 +42,7 @@ class Player {
         // Check if the character has reached the food image
         if (row === this.SIZE && column === this.SIZE) {
             // Determine the results page based on the current page
+            $('.drum-stick').hide();
             let resultsPage;
             const currentPage = window.location.href;
             if (currentPage.endsWith('game1.html')) {
@@ -123,7 +124,7 @@ class Maze extends Player{
             [6, 9], [6, 11], [7, 4], [7, 8], [8, 1], [8, 2], [8, 4], 
             [8, 6], [8, 8], [9, 1], [9, 4], [9, 6], [9, 8], [9, 7], 
             [10, 1], [11, 1], [10, 2], [11, 3], [11, 7], [11, 8], [11, 9], 
-            [11, 10]],
+            [11, 10], [9, 10], [8, 10], [8, 11]],
         };
     
         // Set walls based on grid size
@@ -144,9 +145,7 @@ class Maze extends Player{
             for (let j = 1; j <= this.SIZE; j += 1) {
                 const cell = $('<td height=50 width=50 align=center valign=center></td>');
                 if (i === this.SIZE && j === this.SIZE) {
-                const image = $('<img src="img/transFood.png" height=95%>');
-                cell.addClass('last-cell');
-
+                const image = $('<img src="img/transFood.png" height=95% class="drum-stick">');
                 cell.append(image);
                 }
                 if (i === 1 && j === 1) {
