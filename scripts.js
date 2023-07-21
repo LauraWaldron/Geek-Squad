@@ -8,18 +8,32 @@ class Player {
     // Moves character based on key event and ensures the character does not move outside of grid boundaries
     moveCharacter(direction) {
         let { row, column } = this.currentCell;
-    
-            if (direction === 'up' && row > 1) {
-                row--;
-            } else if (direction === 'down' && row < this.SIZE) {
-                row++;
-            } else if (direction === 'left' && column > 1) {
-                column--;
-            } else if (direction === 'right' && column < this.SIZE) {
-                column++;
-            }
-      
-        // updates current cell the character is positioned in
+
+        // Calculate the potential next cell the character wants to move into
+        let nextRow = row;
+        let nextColumn = column;
+        if (direction === 'up') {
+            nextRow = row - 1;
+        } else if (direction === 'down') {
+            nextRow = row + 1;
+        } else if (direction === 'left') {
+            nextColumn = column - 1;
+        } else if (direction === 'right') {
+            nextColumn = column + 1;
+        }
+
+        // Check if the potential next cell is within the grid and not a wall
+        if (
+            nextRow >= 1 && nextRow <= this.SIZE &&
+            nextColumn >= 1 && nextColumn <= this.SIZE &&
+            !this.walls[nextRow - 1][nextColumn - 1] // Check if the cell is not a wall
+        ) {
+            // Move the character
+            row = nextRow;
+            column = nextColumn;
+        }
+
+        // Update the current cell the character is positioned in
         this.currentCell = { row, column };
         const Character = $('#Character');
         const cell = $(`table tr:nth-child(${row}) td:nth-child(${column})`);
@@ -70,6 +84,7 @@ class Maze extends Player{
     constructor() {
         super(); // Call the superclass constructor before accessing properties/methods
         this.SIZE = this.levelDifficulty();
+        this.walls = this.createWalls(this.SIZE);
         this.drawGrid();
         }
     
@@ -86,6 +101,108 @@ class Maze extends Player{
         }
     }
 
+    createWalls(gridSize) {
+        const grid = new Array(gridSize).fill(null).map(() => new Array(gridSize).fill(false));
+    
+        // Mark walls/barriers on the grid based on the level and gridSize
+        if (gridSize === 6) {
+            grid[1][3] = true;
+            grid[1][4] = true;
+            grid[2][4] = true;
+            grid[2][2] = true;
+            grid[4][4] = true;
+            grid[4][5] = true;
+            grid[5][1] = true;
+            grid[3][0] = true;
+            grid[1][1] = true;
+            grid[1][2] = true;
+            grid[3][2] = true;
+        } else if (gridSize === 9) {
+            grid[1][1] = true;
+            grid[2][1] = true;
+            grid[3][2] = true;
+            grid[4][2] = true;
+            grid[5][2] = true;
+            grid[4][0] = true;
+            grid[6][1] = true;
+            grid[6][2] = true;
+            grid[6][3] = true;
+            grid[6][4] = true;
+            grid[7][1] = true;
+            grid[8][7] = true;
+            grid[7][7] = true;
+            grid[1][3] = true;
+            grid[1][4] = true;
+            grid[2][4] = true;
+            grid[3][4] = true;
+            grid[4][4] = true;
+            grid[4][5] = true;
+            grid[0][6] = true;
+            grid[1][6] = true;
+            grid[0][7] = true;
+            grid[0][8] = true;
+            grid[3][7] = true;
+            grid[3][8] = true;
+            grid[5][7] = true;
+            grid[7][5] = true;
+        } else if (gridSize === 12) {
+            grid[1][1] = true;
+            grid[1][2] = true;
+            grid[1][3] = true;
+            grid[1][5] = true;
+            grid[1][6] = true;
+            grid[0][6] = true;
+            grid[1][10] = true;
+            grid[1][11] = true;
+            grid[2][1] = true;
+            grid[3][1] = true;
+            grid[3][4] = true;
+            grid[3][6] = true;
+            grid[3][8] = true;
+            grid[3][9] = true;
+            grid[3][10] = true;
+            grid[3][0] = true;
+            grid[4][2] = true;
+            grid[3][3] = true;
+            grid[4][6] = true;
+            grid[4][8] = true;
+            grid[5][4] = true;
+            grid[5][8] = true;
+            grid[6][1] = true;
+            grid[6][2] = true;
+            grid[6][4] = true;
+            grid[6][6] = true;
+            grid[6][8] = true;
+            grid[6][9] = true;
+            grid[6][11] = true;
+            grid[7][4] = true;
+            grid[7][8] = true;
+            grid[8][1] = true;
+            grid[8][2] = true;
+            grid[8][4] = true;
+            grid[8][6] = true;
+            grid[8][8] = true;
+            grid[9][1] = true;
+            grid[9][4] = true;
+            grid[9][6] = true;
+            grid[9][8] = true;
+            grid[9][7] = true;
+            grid[10][1] = true;
+            grid[11][1] = true;
+            grid[10][2] = true;
+            grid[11][3] = true;
+            grid[11][7] = true;
+            grid[11][8] = true;
+            grid[11][9] = true;
+            grid[11][10] = true;
+
+           
+         
+        }
+    
+        return grid;
+    }
+    
 
     
     // draws the maze/board
@@ -112,6 +229,10 @@ class Maze extends Player{
                     const character = $(`<div id="Character" class="Character" style="background-image: url('${characterImage}'); background-size: cover;"></div>`);
                     cell.append(character);
                 }
+                if (this.walls[i - 1][j - 1]) {
+                    cell.addClass('wall');
+                }
+    
                 row.append(cell);
             }
             board.append(row);
@@ -121,7 +242,7 @@ class Maze extends Player{
             $(mazeContainer).append(board);
         }
     }
-  
+    
 
 $(function() {
     new Maze()
@@ -132,40 +253,10 @@ function saveCharacter() {
         // Save the selected character to localStorage
         localStorage.setItem('selectedCharacter', selectedImageId);
     }
-}
-
-// Function to display the best score 
-function displayBestScore(time, moves) {
-    const bestScoreContainer = document.getElementById('best-score-container');
-    const timeParagraph = document.createElement('p');
-    timeParagraph.textContent = `Best Time: ${time}`;
-    bestScoreContainer.appendChild(timeParagraph);
-
-    const movesParagraph = document.createElement('p');
-    movesParagraph.textContent = `Least Moves: ${moves}`;
-    bestScoreContainer.appendChild(movesParagraph);
 
 }
 
-// Display the best score on page load
-displayBestScore(bestTime, leastMoves);
-// Function to display the results
-function displayResults(time, moves) {
-    const bestTimeSpan = document.getElementById('best-time');
-    const leastMovesSpan = document.getElementById('least-moves');
-
-    bestTimeSpan.textContent = time;
-    leastMovesSpan.textContent = moves;
-  }
-
-  // Sample results (replace with actual results)
-  const bestTime = '00:45';
-  const leastMoves = 20;
-
-  // Display the results on page load
-  displayResults(bestTime, leastMoves);
-
-  var selectedImageId = null;
+var selectedImageId = null;
 
 function selectImage(imageId) {
     if (selectedImageId) {
