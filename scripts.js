@@ -104,106 +104,37 @@ class Maze extends Player{
     createWalls(gridSize) {
         const grid = new Array(gridSize).fill(null).map(() => new Array(gridSize).fill(false));
     
-        // Mark walls/barriers on the grid based on the level and gridSize
-        if (gridSize === 6) {
-            grid[1][3] = true;
-            grid[1][4] = true;
-            grid[2][4] = true;
-            grid[2][2] = true;
-            grid[4][4] = true;
-            grid[4][5] = true;
-            grid[5][1] = true;
-            grid[3][0] = true;
-            grid[1][1] = true;
-            grid[1][2] = true;
-            grid[3][2] = true;
-        } else if (gridSize === 9) {
-            grid[1][1] = true;
-            grid[2][1] = true;
-            grid[3][2] = true;
-            grid[4][2] = true;
-            grid[5][2] = true;
-            grid[4][0] = true;
-            grid[6][1] = true;
-            grid[6][2] = true;
-            grid[6][3] = true;
-            grid[6][4] = true;
-            grid[7][1] = true;
-            grid[8][7] = true;
-            grid[7][7] = true;
-            grid[1][3] = true;
-            grid[1][4] = true;
-            grid[2][4] = true;
-            grid[3][4] = true;
-            grid[4][4] = true;
-            grid[4][5] = true;
-            grid[0][6] = true;
-            grid[1][6] = true;
-            grid[0][7] = true;
-            grid[0][8] = true;
-            grid[3][7] = true;
-            grid[3][8] = true;
-            grid[5][7] = true;
-            grid[7][5] = true;
-        } else if (gridSize === 12) {
-            grid[1][1] = true;
-            grid[1][2] = true;
-            grid[1][3] = true;
-            grid[1][5] = true;
-            grid[1][6] = true;
-            grid[0][6] = true;
-            grid[1][10] = true;
-            grid[1][11] = true;
-            grid[2][1] = true;
-            grid[3][1] = true;
-            grid[3][4] = true;
-            grid[3][6] = true;
-            grid[3][8] = true;
-            grid[3][9] = true;
-            grid[3][10] = true;
-            grid[3][0] = true;
-            grid[4][2] = true;
-            grid[3][3] = true;
-            grid[4][6] = true;
-            grid[4][8] = true;
-            grid[5][4] = true;
-            grid[5][8] = true;
-            grid[6][1] = true;
-            grid[6][2] = true;
-            grid[6][4] = true;
-            grid[6][6] = true;
-            grid[6][8] = true;
-            grid[6][9] = true;
-            grid[6][11] = true;
-            grid[7][4] = true;
-            grid[7][8] = true;
-            grid[8][1] = true;
-            grid[8][2] = true;
-            grid[8][4] = true;
-            grid[8][6] = true;
-            grid[8][8] = true;
-            grid[9][1] = true;
-            grid[9][4] = true;
-            grid[9][6] = true;
-            grid[9][8] = true;
-            grid[9][7] = true;
-            grid[10][1] = true;
-            grid[11][1] = true;
-            grid[10][2] = true;
-            grid[11][3] = true;
-            grid[11][7] = true;
-            grid[11][8] = true;
-            grid[11][9] = true;
-            grid[11][10] = true;
+        const wallPositions = {
+            // Walls/barriers for level 1
+            6: [[1, 3], [1, 4], [2, 4], [2, 2], [4, 4], 
+            [4, 5], [5, 1], [3, 0], [1, 1], [1, 2], [3, 2]],
 
-           
-         
-        }
+            // Walls/barriers for level 2
+            9: [[1, 1], [2, 1], [3, 2], [4, 2], [5, 2], [4, 0], 
+            [6, 1], [6, 2], [6, 3], [6, 4], [7, 1], [8, 7], [7, 7], 
+            [1, 3], [1, 4], [2, 4], [3, 4], [4, 4], [4, 5], [0, 6], 
+            [1, 6], [0, 7], [0, 8], [3, 7], [3, 8], [5, 7], [7, 5]],
+
+            // Walls/barriers for level 3
+            12: [[1, 1], [1, 2], [1, 3], [1, 5], [1, 6], [0, 6], 
+            [1, 10], [1, 11], [2, 1], [3, 1], [3, 4], [3, 6], [3, 8], 
+            [3, 9], [3, 10], [3, 0], [4, 2], [3, 3], [4, 6], [4, 8], 
+            [5, 4], [5, 8], [6, 1], [6, 2], [6, 4], [6, 6], [6, 8], 
+            [6, 9], [6, 11], [7, 4], [7, 8], [8, 1], [8, 2], [8, 4], 
+            [8, 6], [8, 8], [9, 1], [9, 4], [9, 6], [9, 8], [9, 7], 
+            [10, 1], [11, 1], [10, 2], [11, 3], [11, 7], [11, 8], [11, 9], 
+            [11, 10]],
+        };
+    
+        // Set walls based on grid size
+        const walls = wallPositions[gridSize] || [];
+        walls.forEach(([row, col]) => {
+            grid[row][col] = true;
+        });
     
         return grid;
     }
     
-
     
     // draws the maze/board
     drawGrid() {
@@ -214,6 +145,8 @@ class Maze extends Player{
                 const cell = $('<td height=50 width=50 align=center valign=center></td>');
                 if (i === this.SIZE && j === this.SIZE) {
                 const image = $('<img src="img/transFood.png" height=95%>');
+                cell.addClass('last-cell');
+
                 cell.append(image);
                 }
                 if (i === 1 && j === 1) {
