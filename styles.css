@@ -44,6 +44,13 @@ h1{
   }
 .start-here{
     color: white;
+    text-decoration: none;
+    font-size: 20px;
+    border: 2px solid;
+    border-radius: 8px;
+    padding: 10px;
+    border-color: white;
+
 }
 .button1{    
     border: 2px solid rgb(90, 83, 21);
