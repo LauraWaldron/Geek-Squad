@@ -88,6 +88,29 @@ class Player {
 
 }
 
+class Timer {
+    constructor(minutesLabelId, secondsLabelId) {
+      this.minutesLabel = document.getElementById(minutesLabelId);
+      this.secondsLabel = document.getElementById(secondsLabelId);
+      this.totalSeconds = 0;
+      setInterval(this.setTime.bind(this), 1000);
+    }
+  
+    setTime() {
+      ++this.totalSeconds;
+      this.secondsLabel.innerHTML = this.pad(this.totalSeconds % 60);
+      this.minutesLabel.innerHTML = this.pad(parseInt(this.totalSeconds / 60));
+    }
+  
+    pad(val) {
+      var valString = val + "";
+      if (valString.length < 2) {
+        return "0" + valString;
+      } else {
+        return valString;
+      }
+    }
+  }
 
 class Maze extends Player{
     constructor() {
@@ -190,22 +213,15 @@ $(function() {
     new Maze()
 });
 
-function saveCharacter() {
+var selectedImageId = null;
+
+function selectImage(imageId) {
     if (selectedImageId) {
-        // Save the selected character to localStorage
-        localStorage.setItem('selectedCharacter', selectedImageId);
-
-        // Check if there's a level parameter in the URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const levelParam = urlParams.get('level');
-
-        if (levelParam) {
-            // If a level parameter is present, redirect to the corresponding level
-            window.location.href = `game${levelParam}.html`;
-        } else {
-            // If no level parameter is present, redirect to the first level (level 1)
-            window.location.href = 'game1.html';
-        }
+        // Remove the "selected" class from the previously selected image
+        $("#" + selectedImageId).removeClass("selected");
     }
-}
+    // Add the "selected" class to the clicked image
+    $("#" + imageId).addClass("selected");
 
+    selectedImageId = imageId;
+}
