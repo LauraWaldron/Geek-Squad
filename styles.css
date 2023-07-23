@@ -125,10 +125,18 @@ table{
     background-color: rgb(90, 80, 31);
 }
 
-@media (max-width: 500px) {
+@media (min-width: 768px) {
+    .arrow-buttons {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 767px) {
     .arrow-buttons {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       margin-top: 10px;
     }
-}
+  }
