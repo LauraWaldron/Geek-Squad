@@ -72,23 +72,5 @@
     const audioElement = document.querySelector('audio');
     audioElement.volume = 0.15; // Set the volume to 15 percent (0.15)
   </script>
-
-  <script>
-    // Function to display the best score
-    function displayBestScore(time, moves) {
-      const bestTimeSpan = document.getElementById('best-time');
-      const leastMovesSpan = document.getElementById('least-moves');
-
-      bestTimeSpan.textContent = time;
-      leastMovesSpan.textContent = moves;
-    }
-
-    // Sample best score (replace with actual best score)
-    const bestTime = '00:45';
-    const leastMoves = 20;
-
-    // Display the best score on page load
-    displayBestScore(bestTime, leastMoves);
-  </script>
 </body>
 </html>

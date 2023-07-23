@@ -117,26 +117,5 @@
     <source src="soundtrack.mp3" type="audio/mpeg">
   </audio> 
   </body>
-  <script>
-    const audioElement = document.querySelector('audio');
-    audioElement.volume = 0.15; // Set the volume to 15 percent (0.15)
-    // Function to display the best score
-    function displayBestScore(time, moves) {
-      const bestTimeSpans = document.querySelectorAll('.time-number');
-      const leastMovesSpans = document.querySelectorAll('.moves-number');
-
-      for (let i = 0; i < bestTimeSpans.length; i++) {
-        bestTimeSpans[i].textContent = time;
-        leastMovesSpans[i].textContent = moves;
-      }
-    }
-
-    // Sample best score (replace with actual best score)
-    const bestTime = '00:45';
-    const leastMoves = 20;
-
-    // Display the best score on page load
-    displayBestScore(bestTime, leastMoves);
-  </script>
 </body>
 </html>

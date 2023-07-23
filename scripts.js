@@ -78,7 +78,15 @@ class Player {
                     break;
           }
         });
+
+        $('.arrow-button').click((e) => {
+            const direction = $(e.target).data('direction');
+            this.moveCharacter(direction);
+        });
+        
       }
+
+      
 }
 
 
@@ -213,3 +221,4 @@ function displayMoveCount(moveCount) {
     const moveCountElement = document.getElementById('move-count');
     moveCountElement.textContent = `Total Moves: ${moveCount}`;s
 }
+

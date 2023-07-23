@@ -124,3 +124,11 @@ table{
 .wall {
     background-color: rgb(90, 80, 31);
 }
+
+@media (max-width: 500px) {
+    .arrow-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+}
