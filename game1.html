@@ -18,13 +18,16 @@
         <audio id="sound" controls autoplay loop>
             <source src="soundtrack.mp3" type="audio/mpeg">
         </audio> 
-        <script>
-            const audioElement = document.querySelector('audio');
-            audioElement.volume = 0.15; // Set the volume to 15 percent (0.15)
-        </script>    
+           
         <span id="minutes1">00</span>:<span id="seconds1">00</span>
         <div id="moveCount">Moves: 0</div> 
     </body>
+    <script>
+            const audioElement = document.querySelector('audio');
+            audioElement.volume = 0.15; // Set the volume to 15 percent (0.15)
+            
+            const timer1 = new Timer("minutes1", "seconds1");
+    </script> 
     <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://ww.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="config.js"></script>
