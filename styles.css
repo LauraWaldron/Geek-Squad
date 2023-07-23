@@ -12,12 +12,18 @@ p{
 }
 h2{
     color:rgb(90, 83, 21);
+    font-size: 35px;
 }
 h1{
     color:rgb(90, 83, 21);
     text-align:center;
     font-size: 70px;
 }
+
+#panda, #sloth, #tiger {
+    margin-bottom: 40px;
+}
+
 #tree1{
     position:absolute;
     bottom:0;
