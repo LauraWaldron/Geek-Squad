@@ -194,19 +194,18 @@ function saveCharacter() {
     if (selectedImageId) {
         // Save the selected character to localStorage
         localStorage.setItem('selectedCharacter', selectedImageId);
-    }
 
+        // Check if there's a level parameter in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const levelParam = urlParams.get('level');
+
+        if (levelParam) {
+            // If a level parameter is present, redirect to the corresponding level
+            window.location.href = `game${levelParam}.html`;
+        } else {
+            // If no level parameter is present, redirect to the first level (level 1)
+            window.location.href = 'game1.html';
+        }
+    }
 }
 
-var selectedImageId = null;
-
-function selectImage(imageId) {
-    if (selectedImageId) {
-        // Remove the "selected" class from the previously selected image
-        $("#" + selectedImageId).removeClass("selected");
-    }
-    // Add the "selected" class to the clicked image
-    $("#" + imageId).addClass("selected");
-  
-    selectedImageId = imageId;
-}
