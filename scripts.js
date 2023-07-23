@@ -210,9 +210,3 @@ function selectImage(imageId) {
   
     selectedImageId = imageId;
 }
-
-function displayMoveCount(moveCount) {
-    const moveCountElement = document.getElementById('move-count');
-    moveCountElement.textContent = `Total Moves: ${moveCount}`;s
-}
-
