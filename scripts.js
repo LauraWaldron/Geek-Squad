@@ -32,6 +32,7 @@ class Player {
             // Move the character
             row = nextRow;
             column = nextColumn;
+            this.incrementMoveCount();
         }
 
         // Update the current cell the character is positioned in
@@ -78,15 +79,13 @@ class Player {
                     break;
           }
         });
-
-        $('.arrow-button').click((e) => {
-            const direction = $(e.target).data('direction');
-            this.moveCharacter(direction);
-        });
-        
       }
 
-      
+      incrementMoveCount() {
+        this.moveCount++;
+        $('#moveCount').text(`Moves: ${this.moveCount}`);
+    }
+
 }
 
 
@@ -182,11 +181,6 @@ class Maze extends Player{
             const mazeContainer = document.body;
             $(mazeContainer).append(board);
 
-            this.moveCount++; // Increment the move count
-            $('#moveCount').text(`Moves: ${this.moveCount}`); // Update the move count display
-
-            // Call a function to display the move count in an HTML document
-            displayMoveCount(this.moveCount);
 
         }
     }
