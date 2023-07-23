@@ -2,6 +2,7 @@
 class Player {
     constructor() {
         this.currentCell = { row: 1, column: 1 };     // starting position of the character
+        this.moveCount = 0; // Initialize the move count to 0
         this.eventListeners();
     }
 
@@ -172,6 +173,13 @@ class Maze extends Player{
         
             const mazeContainer = document.body;
             $(mazeContainer).append(board);
+
+            this.moveCount++; // Increment the move count
+            $('#moveCount').text(`Moves: ${this.moveCount}`); // Update the move count display
+
+            // Call a function to display the move count in an HTML document
+            displayMoveCount(this.moveCount);
+
         }
     }
     
@@ -199,4 +207,9 @@ function selectImage(imageId) {
     $("#" + imageId).addClass("selected");
   
     selectedImageId = imageId;
+}
+
+function displayMoveCount(moveCount) {
+    const moveCountElement = document.getElementById('move-count');
+    moveCountElement.textContent = `Total Moves: ${moveCount}`;s
 }
