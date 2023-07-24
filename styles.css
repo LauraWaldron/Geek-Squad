@@ -45,8 +45,9 @@ h1{
     right:0;
 }
 #sound {
-    position:absolute;
+    position:fixed;
     bottom:0px;
+    right:0px;
   }
 .start-here{
     color: white;
