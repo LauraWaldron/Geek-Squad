@@ -110,7 +110,7 @@ class Timer {
         return valString;
       }
     }
-  }
+}
 
 class Maze extends Player{
     constructor() {
