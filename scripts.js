@@ -213,8 +213,13 @@ $(function() {
     new Maze()
 });
 
+function saveCharacter() {
+    if (selectedImageId) {
+        // Save the selected character to localStorage
+        localStorage.setItem('selectedCharacter', selectedImageId);
+    }
+}
 var selectedImageId = null;
-
 function selectImage(imageId) {
     if (selectedImageId) {
         // Remove the "selected" class from the previously selected image
@@ -222,6 +227,6 @@ function selectImage(imageId) {
     }
     // Add the "selected" class to the clicked image
     $("#" + imageId).addClass("selected");
-
+  
     selectedImageId = imageId;
 }
