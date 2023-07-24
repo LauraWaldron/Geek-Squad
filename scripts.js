@@ -193,7 +193,8 @@ class Maze extends Player{
                     cell.append(character);
                 }
                 if (this.walls[i - 1][j - 1]) {
-                    cell.addClass('wall');
+                    const image = $(`<img src="img/biggerTree.png" height="100%" width="100%">`);
+                    cell.append(image);
                 }
     
                 row.append(cell);
