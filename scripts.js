@@ -89,25 +89,25 @@ class Player {
 
 class Timer {
     constructor(minutesLabelId, secondsLabelId) {
-      this.minutesLabel = document.getElementById(minutesLabelId);
-      this.secondsLabel = document.getElementById(secondsLabelId);
-      this.totalSeconds = 0;
-      setInterval(this.setTime.bind(this), 1000);
+        this.minutesLabel = document.getElementById(minutesLabelId);
+        this.secondsLabel = document.getElementById(secondsLabelId);
+        this.totalSeconds = 0;
+        setInterval(this.setTime.bind(this), 1000);
     }
   
     setTime() {
-      ++this.totalSeconds;
-      this.secondsLabel.innerHTML = this.pad(this.totalSeconds % 60);
-      this.minutesLabel.innerHTML = this.pad(parseInt(this.totalSeconds / 60));
-    }
+        ++this.totalSeconds;
+        this.secondsLabel.innerHTML = this.pad(this.totalSeconds % 60);
+        this.minutesLabel.innerHTML = this.pad(parseInt(this.totalSeconds / 60));
+        }
   
     pad(val) {
-      var valString = val + "";
-      if (valString.length < 2) {
-        return "0" + valString;
-      } else {
-        return valString;
-      }
+        var valString = val + "";
+        if (valString.length < 2) {
+            return "0" + valString;
+        } else {
+            return valString;
+        }
     }
 }
 
