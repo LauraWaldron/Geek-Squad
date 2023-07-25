@@ -56,7 +56,6 @@ class Player {
             }
             // Forward to the appropriate results page
             window.location.href = resultsPage;
-            
       }
     }
 

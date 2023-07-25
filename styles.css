@@ -106,19 +106,10 @@ table{
     font-size: 20px;
   }
  
-  .moves-number, .time-number {
-    display: inline-block;
-    border: 2px solid black;
-    padding: 5px 10px;
-    font-size: 20px;
-}
+
 .selected {
     border: 9px solid rgb(90, 80, 31);
     transform: scale(0.75);
     border-radius: 10px;
-}
-
-.music {
-    width: px;
 }
 
