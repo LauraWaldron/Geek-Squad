@@ -53,18 +53,21 @@ class Player {
             if (currentPage.endsWith('game1.html')) {
                 resultsPage = 'between-levels1.html';
                 timer1.stopTimer();
-                const level1Time = timer1.totalSeconds; // Get the time elapsed for level 1
-                localStorage.setItem('level1Time', level1Time); // Save the time to localStorage
+                const level1Time = timer1.totalSeconds;
+                localStorage.setItem('level1Time', level1Time);
+                localStorage.setItem('moveCount1', this.moveCount)
             } else if (currentPage.endsWith('game2.html')) {
                 resultsPage = 'between-levels2.html';
                 timer2.stopTimer();
-                const level2Time = timer2.totalSeconds; // Get the time elapsed for level 2
-                localStorage.setItem('level2Time', level2Time); // Save the time to localStorage
+                const level2Time = timer2.totalSeconds; 
+                localStorage.setItem('level2Time', level2Time); 
+                localStorage.setItem('moveCount2', this.moveCount)
             } else if (currentPage.endsWith('game3.html')) {
                 resultsPage = 'Finalresults.html';
                 timer3.stopTimer();
-                const level3Time = timer3.totalSeconds; // Get the time elapsed for level 3
-                localStorage.setItem('level3Time', level3Time); // Save the time to localStorage
+                const level3Time = timer3.totalSeconds; 
+                localStorage.setItem('level3Time', level3Time); 
+                localStorage.setItem('moveCount3', this.moveCount)
             }
             
             // Forward to the appropriate results page
