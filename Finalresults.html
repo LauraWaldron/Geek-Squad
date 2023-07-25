@@ -71,7 +71,7 @@
         <div class="row-container">
           <div class="image-container">
             <img id="clock1" src="img/history.png" alt="Clock Image">
-            <p>Best Time: <span class="time-number" id="best-time1"></span></span></p>
+            <p>Best Time: <span class="time-number" id="level1Time"></span></span></p>
           </div>
           <div class="image-container">
             <img id="running1" src="img/running.png" alt="Running Image">
@@ -86,7 +86,7 @@
         <div class="row-container">
           <div class="image-container">
             <img id="clock2" src="img/history.png" alt="Clock Image">
-            <p>Best Time: <span class="time-number" id="best-time2"></span></span></p>
+            <p>Best Time: <span class="time-number" id="level2Time"></span></span></p>
           </div>
           <div class="image-container">
             <img id="running2" src="img/running.png" alt="Running Image">
@@ -101,7 +101,7 @@
         <div class="row-container">
           <div class="image-container">
             <img id="clock3" src="img/history.png" alt="Clock Image">
-            <p>Best Time: <span class="time-number" id="best-time3"></span></span></p>
+            <p>Best Time: <span class="time-number" id="level3Time"></span></span></p>
           </div>
           <div class="image-container">
             <img id="running3" src="img/running.png" alt="Running Image">
@@ -113,8 +113,14 @@
   </div>
   <h1>Do you want to try again?</h1><br>
   <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/">Start Over</a>
-
-  </body>
+  <script>
+    const level1Time = localStorage.getItem('level1Time');
+    document.getElementById('level1Time').textContent = formatTime(level1Time);
+    const level2Time = localStorage.getItem('level2Time');
+    document.getElementById('level2Time').textContent = formatTime(level2Time);
+    const level3Time = localStorage.getItem('level3Time');
+    document.getElementById('level3Time').textContent = formatTime(level3Time);
+  </script> 
 </body>
 
 </html>

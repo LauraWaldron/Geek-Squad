@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="styles.css">
-  <!--title & favicon-->
-  <title>Maze Explorers</title>
-  <link rel="icon" type="image/x-icon" href="img/transtree.png">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color:rgb(147,196,125,255);
-    }
-    
-    h1 {
-      text-align: center;
-      font-size: 28px;
-    }
-    
-    .results-container {
-      margin-top: 20px;
-      text-align: center;
-    }
-    
-    .results-container p {
-      margin: 20px 0;
-      font-size: 24px;
-    }
-    
-    .image-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .image-container img {
-      max-width: 100px;
-      max-height: 100px;
-      margin: 0 10px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Results</h1>
-  <div class="results-container" id="results-container">
-    <div class="image-container">
-      <img id="clock" src="img/history.png" alt="Clock Image">
-      <p>Best Time:<span class="time-number" id="elapsedTime">00:00</span></span></p>
-    </div>
-    <div class="image-container">
-      <img id="running" src="img/running.png" alt="Running Image">
-      <p>Least Moves: <span class="moves-number" id="least-moves"></span></span></p>
-    </div>
-  </div> 
-  <br><br><br>
-  <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/character2.html">Change your character</a>      
-  <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/game2.html">Begin Level 2</a>      
-     
-</body>
+  <head>
+      <link rel="stylesheet" href="styles.css">
+      <!--title & favicon-->
+      <title>Maze Explorers</title>
+      <link rel="icon" type="image/x-icon" href="img/transtree.png">
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 20px;
+          background-color:rgb(147,196,125,255);
+        }
+        
+        h1 {
+          text-align: center;
+          font-size: 28px;
+        }
+        
+        .results-container {
+          margin-top: 20px;
+          text-align: center;
+        }
+        
+        .results-container p {
+          margin: 20px 0;
+          font-size: 24px;
+        }
+        
+        .image-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .image-container img {
+          max-width: 100px;
+          max-height: 100px;
+          margin: 0 10px;
+        }
+      </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script src="scripts.js"></script>
+  </head>
+  <body>
+      <h1>Results</h1>
+      <div class="results-container" id="results-container">
+        <div class="image-container">
+          <img id="clock" src="img/history.png" alt="Clock Image">
+          <p>Best Time:<span class="time-number" id="level1Time"></span></span></p>
+        </div>
+        <div class="image-container">
+          <img id="running" src="img/running.png" alt="Running Image">
+          <p>Least Moves: <span class="moves-number" id="least-moves"></span></span></p>
+        </div>
+      </div> 
+      <br><br><br>
+      <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/character2.html">Change your character</a>      
+      <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/game2.html">Begin Level 2</a>      
+      <script>
+        const level1Time = localStorage.getItem('level1Time');
+        document.getElementById('level1Time').textContent = formatTime(level1Time);
+      </script>
+  </body>
 </html>

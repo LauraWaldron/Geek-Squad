@@ -49,21 +49,25 @@
     }
   </style>
 </head>
-<body>
-  <h1>Best Score</h1>
+  <body>
+    <h1>Best Score</h1>
 
-  <div class="results-container" id="results-container">
-    <div class="image-container">
-      <img id="clock" src="img/history.png" alt="Clock Image">
-      <p>Best Time: <span class="time-number" id="best-time"></span></span></p>
+    <div class="results-container" id="results-container">
+      <div class="image-container">
+        <img id="clock" src="img/history.png" alt="Clock Image">
+        <p>Best Time: <span class="time-number" id="level2Time"></span></span></p>
+      </div>
+      <div class="image-container">
+        <img id="running" src="img/running.png" alt="Running Image">
+        <p>Least Moves: <span class="moves-number" id="least-moves"></span></span></p>
+      </div>
     </div>
-    <div class="image-container">
-      <img id="running" src="img/running.png" alt="Running Image">
-      <p>Least Moves: <span class="moves-number" id="least-moves"></span></span></p>
-    </div>
-  </div>
-  <br><br>
-  <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/game3.html">Continue to Level 3</a>
-  <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/character3.html">Change your character</a>      
-</body>
+    <br><br>
+    <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/game3.html">Continue to Level 3</a>
+    <a class="button1" href="https://laurawaldron.github.io/Geek-Squad/character3.html">Change your character</a>   
+    <script>
+      const level2Time = localStorage.getItem('level2Time');
+      document.getElementById('level2Time').textContent = formatTime(level2Time);
+    </script>   
+  </body>
 </html>

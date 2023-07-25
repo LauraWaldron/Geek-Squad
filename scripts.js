@@ -1,4 +1,7 @@
 
+let timeElapsed = [0, 0, 0];
+let timer1, timer2, timer3;
+
 class Player {
     constructor() {
         this.currentCell = { row: 1, column: 1 };     // starting position of the character
@@ -49,11 +52,21 @@ class Player {
             const currentPage = window.location.href;
             if (currentPage.endsWith('game1.html')) {
                 resultsPage = 'between-levels1.html';
-            }else if (currentPage.endsWith('game2.html')) {
+                timer1.stopTimer();
+                const level1Time = timer1.totalSeconds; // Get the time elapsed for level 1
+                localStorage.setItem('level1Time', level1Time); // Save the time to localStorage
+            } else if (currentPage.endsWith('game2.html')) {
                 resultsPage = 'between-levels2.html';
-            }else if (currentPage.endsWith('game3.html')) {
+                timer2.stopTimer();
+                const level2Time = timer2.totalSeconds; // Get the time elapsed for level 2
+                localStorage.setItem('level2Time', level2Time); // Save the time to localStorage
+            } else if (currentPage.endsWith('game3.html')) {
                 resultsPage = 'Finalresults.html';
+                timer3.stopTimer();
+                const level3Time = timer3.totalSeconds; // Get the time elapsed for level 3
+                localStorage.setItem('level3Time', level3Time); // Save the time to localStorage
             }
+            
             // Forward to the appropriate results page
             window.location.href = resultsPage;
       }
@@ -92,14 +105,23 @@ class Timer {
         this.minutesLabel = document.getElementById(minutesLabelId);
         this.secondsLabel = document.getElementById(secondsLabelId);
         this.totalSeconds = 0;
-        setInterval(this.setTime.bind(this), 1000);
+        this.interval = null; // Store the interval ID for clearing later
+        this.startTimer(); // Automatically start the timer
+    }
+  
+    startTimer() {
+        this.interval = setInterval(this.setTime.bind(this), 1000);
     }
   
     setTime() {
         ++this.totalSeconds;
         this.secondsLabel.innerHTML = this.pad(this.totalSeconds % 60);
         this.minutesLabel.innerHTML = this.pad(parseInt(this.totalSeconds / 60));
-        }
+    }
+  
+    stopTimer() {
+        clearInterval(this.interval);
+    }
   
     pad(val) {
         var valString = val + "";
@@ -109,7 +131,8 @@ class Timer {
             return valString;
         }
     }
-}
+  }
+  
 
 class Maze extends Player{
     constructor() {
@@ -208,10 +231,12 @@ class Maze extends Player{
         }
     }
     
-
-$(function() {
-    new Maze()
-});
+    $(function() {
+        timer1 = new Timer("minutes1", "seconds1");
+        timer2 = new Timer("minutes2", "seconds2");
+        timer3 = new Timer("minutes3", "seconds3");
+        const maze = new Maze();
+      });
 
 function saveCharacter() {
     if (selectedImageId) {
@@ -230,3 +255,10 @@ function selectImage(imageId) {
   
     selectedImageId = imageId;
 }
+
+  // Helper function to format the time as MM:SS
+  function formatTime(totalSeconds) {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  }
